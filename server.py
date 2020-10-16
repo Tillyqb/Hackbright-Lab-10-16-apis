@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from pprint import pformat
 import os
 import requests
-
+import secrets
 
 app = Flask(__name__)
 app.secret_key = 'baloonicornpopsicle'
@@ -12,8 +12,8 @@ app.secret_key = 'baloonicornpopsicle'
 app.config['PRESERVE_CONTEXT_ON_EXCEPTION'] = True
 
 
-API_KEY = os.environ['Wg3D84Me1Rsar5wD4n9BGr8suganocZp']
-payload = {'apikey': 'Wg3D84Me1Rsar5wD4n9BGr8suganocZp'}
+API_KEY = os.environ[secret_key]
+payload = {'apikey': secret_key}
 res = requests.get('https://app.ticketmaster.com/discovery/v2/events', params=payload)
 @app.route('/')
 def homepage():

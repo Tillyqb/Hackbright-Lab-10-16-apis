@@ -3,6 +3,7 @@ from pprint import pformat
 import os
 import requests
 import secrets
+import os
 
 app = Flask(__name__)
 app.secret_key = 'baloonicornpopsicle'
@@ -12,8 +13,8 @@ app.secret_key = 'baloonicornpopsicle'
 app.config['PRESERVE_CONTEXT_ON_EXCEPTION'] = True
 
 
-API_KEY = os.environ[secret_key]
-payload = {'apikey': secret_key}
+API_KEY = os.environ['TICKETMASTER_KEY']
+payload = {'apikey': 'TICKETMASTER_KEY'}
 res = requests.get('https://app.ticketmaster.com/discovery/v2/events', params=payload)
 @app.route('/')
 def homepage():
